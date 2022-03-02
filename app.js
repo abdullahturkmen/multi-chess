@@ -4,18 +4,6 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var path = require('path');
 
-const mysql = require('mysql2');
-
-const connection = mysql.createConnection({
-	host: 'localhost',
-	user:'root',
-	database:'multi_chess'
-});
-
-connection.query('select * from users', function(err, results, fields){
-console.log(results);
-//console.log(fields);
-});
 
 app.use(express.static('public'))
 
