@@ -9,12 +9,12 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user:'root',
-	database:'test'
+	database:'multi_chess'
 });
 
-connection.query('select * from tabloadi', function(err, results, fields){
+connection.query('select * from users', function(err, results, fields){
 console.log(results);
-console.log(fields);
+//console.log(fields);
 });
 
 app.use(express.static('public'))
