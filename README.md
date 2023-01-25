@@ -1,6 +1,6 @@
 # multi-chess
 
-- [https://multi-chess.netlify.app](https://multi-chess.netlify.app)
+- [https://multi-chess.vercel.app](https://multi-chess.vercel.app)
 
 Hey, i am learning socket.io and node.js therefore i will share step by step process
 
@@ -11,3 +11,8 @@ That is provide users playing online chess game. I used chessboard.js for chess 
 ## How to using?
 
 Firstly you should write "npm i" terminal and then "node app.js" and you should write "localhost:3000" your browser and you will use
+
+.
+.
+.
+
