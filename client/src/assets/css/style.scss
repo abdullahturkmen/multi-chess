@@ -47,3 +47,29 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+.login{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+
+    &-bg{
+        width: 70%;
+        aspect-ratio: 5/3;
+        background-image: url(./../img/login-img.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: auto;
+    }
+
+    &-form{
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        width: 60%;
+        border-radius: 8px;
+    }
+}

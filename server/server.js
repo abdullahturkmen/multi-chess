@@ -201,7 +201,14 @@ io.on("connection", function (socket) {
 
     socket.on('join_room', (e) => {
         var updateRoomIndex = roomsList.findIndex(obj => obj.id == e.room_id)
-        roomsList[updateRoomIndex][e.user_type].push({'user_id': socket.id})
+
+        var userType = e.user_type
+        if(userType == "gamers" && roomsList[updateRoomIndex]['gamers'].length == 2){
+            userType = "viewers"
+            //TODO: burada socket kullanıcısına odanın dolu olduğu bilgisi ve izleyici olarak katıldığı mesajı verilecek
+        }
+        
+        roomsList[updateRoomIndex][userType].push({'user_id': socket.id})
         io.emit('all_rooms', roomsList)
     })
 
@@ -216,7 +223,7 @@ io.on("connection", function (socket) {
         if (roomViewersIndex >= 0) {
             roomsList[roomIndex]['viewers'].splice(roomViewersIndex, 1)
         }
-        if (roomsList[roomIndex]['gamers'].length == 0) { // TODO: odada bulunan izleyicilerin ekranına mesaj düşür
+        if (roomsList[roomIndex]['gamers'].length == 0) { // TODO: odada bulunan izleyicilerin ekranına odanın kapandığı mesajını düşür ve oda bilgisini boşalt
             roomsList.splice(roomIndex, 1)
         }
         io.emit('all_rooms', roomsList)
